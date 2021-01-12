@@ -293,10 +293,65 @@
      
           .callnow2{
               color:red;}
+	      
+	      
+	      
+	      
+               .form{
+                 background-color:greenyellow;
+                 color: black;
+                 text-align: center;
+                 font-size: 24px;
+                 border-radius: 20px;
+                 width: 400px;
+                 margin: 10px;
+                 padding: 10px;
+
+                 
+                
+
+               }
+	      
+	      
+	      
+	      
 
 
 
 </style>
+
+
+<script>
+
+function computeloan (){
+
+
+  var amount = document.getElementById('amount') .Value;
+  var interest_rate= document.getElementById('interest_rate') .Value;
+  var months = document.getElementById('months') .Value;
+  var interest = (amount * ( interest_rate * .01)) / months;
+  var payment = ((amount / months) + interest). toFixed(2);
+  payment = payment.toString(). replace( /\B(?=(\d{3})+(?!\d))/g, ", ");
+  document.getElementById('payment').innerHTML ="monthly payment = rs 3390" +payment;
+  
+  
+
+
+
+}
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
 
 
 </head>
@@ -387,6 +442,15 @@
                   
 
            
+               <center>   <div class="form">
+                  
+           <p> Loan Amount: <input id="amount" type="number" min="1" max="10000000" onchange="computeloan ()"></p>
+           <p> Interest Rate : <input id="interest_rate" type="number" min="0" max="100" value="10" step=".1" onchange="computeloan ()"></p>
+           <p> Months : <input id="months" type="number" min="1" max="120" value="1" step=".1" onchange="computeloan ()"></p>
+           <p> Submit : <input id="Submit" type="submit" > </p>
+           
+             <h2 id="payment"></h2>
+            </div></center>
 
 
                      
